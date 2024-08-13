@@ -45,3 +45,10 @@ export type IComment = {
 		user_name: string | null;
 	} | null;
 };
+
+export type IVoter = {
+	created_at: string;
+	id: string;
+	cc: string;
+	email?: string;
+};

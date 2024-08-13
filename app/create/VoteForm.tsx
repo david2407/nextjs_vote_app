@@ -34,13 +34,13 @@ const FormSchema = z
 	.object({
 		vote_options: z
 			.array(z.string())
-			.refine((value) => value.length >= 2 && value.length <= 6, {
+			.refine((value) => value.length >= 2, {
 				message:
-					"You have to select at least two items and max at six items.",
+					"Tiene que seleccionar minimo dos items",
 			}),
 		title: z
 			.string()
-			.min(5, { message: "Title has a minimum characters of 5" }),
+			.min(5, { message: "Titulo tiene que tener minimo 5 caracteres" }),
 		description: z.string().optional(),
 		end_date: z.date(),
 	})
@@ -103,7 +103,7 @@ export default function VoteForm() {
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-black">
 				<FormField
 					control={form.control}
 					name="title"
@@ -113,6 +113,7 @@ export default function VoteForm() {
 							<FormControl>
 								<Input
 									placeholder="vote for best of... "
+									className="bg-white"
 									{...field}
 								/>
 							</FormControl>
@@ -131,7 +132,7 @@ export default function VoteForm() {
 								<Textarea
 									placeholder="(optional) your vote description.."
 									{...field}
-									className="resize-none"
+									className="resize-none bg-white"
 								/>
 							</FormControl>
 							<FormDescription>
@@ -196,7 +197,7 @@ export default function VoteForm() {
 															}}
 														/>
 													</FormControl>
-													<FormLabel className="font-normal text-lg">
+													<FormLabel className="font-normal text-lg bg-white">
 														{item.label}
 													</FormLabel>
 												</div>
@@ -221,6 +222,7 @@ export default function VoteForm() {
 								type="text"
 								ref={optionRef}
 								placeholder="Press enter to add more option"
+								className="bg-white"
 								onKeyDown={(e) => {
 									if (e.key === "Enter") {
 										e.preventDefault();
@@ -245,7 +247,7 @@ export default function VoteForm() {
 										<Button
 											variant={"outline"}
 											className={cn(
-												"w-full pl-3 text-left font-normal",
+												"w-full pl-3 text-left font-normal bg-white hover:bg-white hover:text-black",
 												!field.value &&
 													"text-muted-foreground"
 											)}
@@ -265,6 +267,7 @@ export default function VoteForm() {
 								>
 									<Calendar
 										mode="single"
+										className="bg-white text-black"
 										selected={field.value}
 										onSelect={field.onChange}
 										disabled={(date) =>
@@ -283,7 +286,7 @@ export default function VoteForm() {
 
 				<Button
 					type="submit"
-					className="w-full"
+					className="w-full bg-green-600 text-white"
 					disabled={!(options.length >= 2)}
 				>
 					Create

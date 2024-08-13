@@ -17,7 +17,7 @@ export default function Profile({ user }: { user: User | undefined }) {
 			<Popover>
 				<PopoverTrigger asChild id="close-popover">
 					<Image
-						src={user?.user_metadata?.avatar_url}
+						src={user?.user_metadata?.avatar_url || "/profile.png"}
 						width={50}
 						height={50}
 						alt={user?.user_metadata?.user_name}

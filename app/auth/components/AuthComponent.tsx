@@ -24,13 +24,13 @@ export default function AuthComponent() {
 	return (
 		<div className="flex items-center justify-center text-gray-200 h-96 border border-dashed border-zinc-500">
 			<div className="space-y-5 text-center ">
-				<h1 className="text-3xl font-bold">Login to Vote</h1>
-				<Button
+				<h1 className="text-3xl font-bold">Ingrese para poder votar</h1>
+				{/* <Button
 					onClick={handleLoginWithGihub}
 					className="flex items-center gap-2 mx-auto"
 				>
 					<GitHubLogoIcon /> Login with Github
-				</Button>
+				</Button> */}
 			</div>
 		</div>
 	);

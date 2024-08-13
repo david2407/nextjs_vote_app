@@ -41,8 +41,8 @@ export default function TePressencest({ id }: { id: string }) {
 	return (
 		<div className="flex items-center gap-2 text-sm">
 			<span className="h-5 w-5 rounded-full bg-green-500 animate-pulse"></span>
-			<h1 className="flex items-center gap-2">
-				{onlineUsers} <PersonIcon /> live on this vote channel
+			<h1 className="flex items-center gap-2 text-black">
+				{onlineUsers} <PersonIcon /> Estan votando en tiempo real {/* live on this vote channel */}
 			</h1>
 		</div>
 	);

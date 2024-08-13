@@ -16,7 +16,7 @@ export default function Info({
 
 	return (
 		<div className="space-y-3 w-full">
-			<h1 className="text-3xl font-bold break-words">{title}</h1>
+			<h1 className="text-3xl font-bold break-words text-black">{title}</h1>
 			<TimeCountDown targetDate={tomorrow} />
 		</div>
 	);

@@ -42,7 +42,7 @@ const TimeCountDown = ({ targetDate }: { targetDate: Date }) => {
 
 	return (
 		<div
-			className="text-3xl text-gray-400 flex items-center gap-2 "
+			className="text-3xl text-black flex items-center gap-2 "
 			suppressHydrationWarning
 		>
 			<TimerIcon />
