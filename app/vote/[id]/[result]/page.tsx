@@ -1,9 +1,9 @@
 import React from "react";
-import CloseForm from "../components/CloseForm";
+import CloseForm from "../../components/CloseForm";
 import { redirect } from "next/navigation";
 import { createSupabaseBrower } from "@/lib/supabase/client";
-import VoteWrapper from "../components/VoteWrapper";
-import Info from "../components/Info";
+import VoteWrapper from "../../components/VoteWrapper";
+import Info from "../../components/Info";
 import { DEFAUTL_DESCRIPTION } from "@/lib/constant";
 
 export async function generateStaticParams() {
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 	};
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string, result: string } }) {
 	const supabase = createSupabaseBrower();
 
 	const { data: vote } = await supabase
@@ -66,7 +66,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 			<div className="w-full flex items-center justify-center  min-h-70vh">
 				<div className="w-full space-y-20">
 					<Info title={vote?.title} endDate={vote.end_date} />
-					<VoteWrapper id={params.id} result={"false"} />
+					<VoteWrapper id={params.id} result={params.result} />
 				</div>
 			</div>
 			<CloseForm />

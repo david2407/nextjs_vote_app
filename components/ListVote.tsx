@@ -21,20 +21,20 @@ export default function ListVote({
 
 				return (
 					<Link
-						href={"/vote/" + id}
+						href={"/vote/" + id + (isExpire ? "/true" : "")}
 						key={index}
 						className=" w-full md:w-96  "
 					>
 						<div className="relative group">
-							<div className=" border border-zinc-600 rounded-md p-5 space-y-3 bg-zinc-800 group-hover:translate-x-3 group-hover:translate-y-3 transition-all relative">
+							<div className=" border border-zinc-600 rounded-md p-5 space-y-3 bg-green-600 group-hover:translate-x-3 group-hover:translate-y-3 transition-all relative">
 								<div className="flex items-center gap-2">
-									<Image
+								{/* 	<Image
 										src={users?.avatar_url!}
 										alt={users?.user_name!}
 										width={40}
 										height={40}
 										className={`rounded-full ring-2 ${ring}`}
-									/>
+									/> */}
 									<div>
 										<h1 className=" text-base">
 											{users?.user_name}
@@ -46,17 +46,17 @@ export default function ListVote({
 									{title}
 								</h1>
 								{isExpire ? (
-									<Badge>Expired</Badge>
+									<Badge>Cerrada</Badge>
 								) : (
-									<p className="tex-sm text-gray-400">
-										Until{" "}
+									<p className="tex-sm text-white">
+										Abierta hasta {" "}
 										{new Date(end_date).toDateString()}
 									</p>
 								)}
 
-								<span className=" absolute -top-8 right-0 text-3xl">
+								{/* <span className=" absolute -top-8 right-0 text-3xl">
 									{emoji}
-								</span>
+								</span> */}
 							</div>
 							<div
 								className={` -z-10 absolute top-0 right-0 translate-x-3 translate-y-3 w-full h-full ring-1  rounded-md ${ring} ${bg} bg-opacity-10`}

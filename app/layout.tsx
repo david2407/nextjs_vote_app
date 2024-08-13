@@ -42,11 +42,11 @@ export default async function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${inter.className} bg-[#09090B] text-gray-200 antialiased  py-10`}
+				className={`${inter.className}   py-10`}
 			>
 				<ThemeProvider
 					attribute="class"
-					defaultTheme="dark"
+					defaultTheme="ligth"
 					enableSystem
 					disableTransitionOnChange
 				>

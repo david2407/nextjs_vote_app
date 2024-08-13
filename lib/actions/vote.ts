@@ -47,6 +47,28 @@ export async function createVote(data: {
 	}
 }
 
+export async function createUser(data: {
+	vote_options: Json;
+	end_date: Date;
+	title: string;
+	description?: string;
+}) {
+	const supabase = await createSupabaseServer();
+
+	const { data: voteId, error } = await supabase.rpc("create_vote", {
+		options: data.vote_options,
+		title: data.title,
+		end_date: new Date(data.end_date).toISOString(),
+		description: data.description || "",
+	});
+
+	if (error) {
+		throw "Fail to create vote." + error.message;
+	} else {
+		redirect("/vote/" + voteId);
+	}
+}
+
 export async function updateVotePath(id: string) {
 	revalidatePath("/vote/" + id);
 }
@@ -78,4 +100,13 @@ export async function updateVoteById(
 	}
 	revalidatePath("/vote/" + voteId);
 	return redirect("/vote/" + voteId);
+}
+
+export async function listVoters() {
+	const supabase = await createSupabaseServer();
+
+	return supabase
+		.from("voters")
+		.select("*")
+		.order("created_at", { ascending: true });
 }
