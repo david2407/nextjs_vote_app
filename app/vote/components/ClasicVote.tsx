@@ -111,10 +111,10 @@ export default function ClasicVote({ id }: { id: string }) {
 							onClick={() => castVote(key)}
 						>
 							<Image
-											src="/profile.png"
+											src= {"/candidatos/" + key.split(" ").join("-") +".png"} 
 											alt={"profile"}
-											width={80}
-											height={80}
+											width={90}
+											height={90}
 											className={cn(
 												" rounded-full ring-2"
 											)}
@@ -130,7 +130,7 @@ export default function ClasicVote({ id }: { id: string }) {
 										className={cn(
 											"h-16 border-y border-r rounded-e-xl relative transition-all group-hover:border-zinc-400",
 											{
-												"bg-yellow-500":
+												"bg-green-600":
 												voteLog?.option === key,
 											}
 										)}
@@ -152,7 +152,7 @@ export default function ClasicVote({ id }: { id: string }) {
 					<InfoCircledIcon />
 					<h1 className="text-lg ">
 						Tu voto fue para{" "}
-						<span className="text-yellow-500 font-bold">
+						<span className="text-green-600 font-bold">
 							{voteLog?.option}
 						</span>{" "}
 						on {new Date(voteLog?.created_at!).toDateString()}{" "}
