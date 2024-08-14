@@ -51,7 +51,7 @@ export default async function RootLayout({
 					disableTransitionOnChange
 				>
 					<QueryProvider>
-						<main className="flex flex-col max-w-7xl mx-auto min-h-screen space-y-10 p-5">
+						<main className="flex flex-col max-w-7xl mx-auto min-h-screen space-y-10 p-5 font-prompt">
 							<Navbar />
 							<div className="w-full flex-1 ">{children}</div>
 							<Footer />

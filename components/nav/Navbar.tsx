@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className="flex items-center justify-between ">
       <Link href="/" className="flex items-center gap-2">
         
-          <h1 className="text-3xl font-bold text-green-600 ">
+          <h1 className="text-3xl font-bold text-green-600">
             Votaciones Seduca{" "}
           </h1>
          

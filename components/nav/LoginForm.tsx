@@ -47,7 +47,7 @@ export default function LoginForm() {
         options: {
           // set this to false if you do not want the user to be automatically signed up
           shouldCreateUser: true,
-          emailRedirectTo: "http://localhost:3000",
+          emailRedirectTo: location.origin,
         },
       });
 
