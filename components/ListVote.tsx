@@ -36,9 +36,9 @@ export default function ListVote({
 										className={`rounded-full ring-2 ${ring}`}
 									/> */}
 									<div>
-										<h1 className=" text-base">
+										{/* <h1 className=" text-base">
 											{users?.user_name}
-										</h1>
+										</h1> */}
 									</div>
 								</div>
 

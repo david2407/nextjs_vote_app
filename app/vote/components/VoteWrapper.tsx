@@ -25,7 +25,7 @@ export default function VoteWrapper({ id, result }: { id: string, result: string
 	return (
 		<div className="space-y-5">
 			<Pressence id={id} />
-			<div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-10 text-black ">
+			<div className=" w-full grid grid-cols-1 md:grid-cols-1 gap-10 text-black ">
 				{ result === "true" ?  <VoteResults id={id} /> :<ClasicVote id={id} />}
 				{/*<div className=" space-y-5">
 					<h1 className=" text-3xl font-medium">

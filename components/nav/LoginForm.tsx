@@ -21,7 +21,7 @@ import {
 import { MoreHorizontal } from "lucide-react";
 import toast from "react-hot-toast";
 import { listVoters } from "@/lib/actions/vote";
-export default function LoginForm() {
+export default function LoginForm( {isAdmin}: {isAdmin: boolean}) {
   const supabase = createSupabaseBrower();
 
   const [email, setEmail] = useState("");
@@ -67,13 +67,13 @@ export default function LoginForm() {
 
   return (
     <div>
-      <Button
+      {isAdmin && <Button
         variant="outline"
         className="flex items-center gap-2 border p-2 rounded-md border-zinc-400 hover:border-green-500 transition-all px-8 animate-fade"
         onClick={handleLoginWithGihub}
       >
         <GitHubLogoIcon /> Login admin
-      </Button>
+      </Button>}
 
       {/* <Button
 			variant="outline"
