@@ -23,7 +23,7 @@ export default async function Page() {
 const ActiveVote = async () => {
 	const { data: votes } = await listActiveVotes();
 	if (!votes?.length) {
-		return <h1 className="text-black">No existen votaciones 😅</h1>;
+		return <h1 className="text-black">No existen votaciones </h1>;
 	}
 	return <ListVote votes={votes} />;
 };
@@ -32,7 +32,7 @@ const ExpiredVote = async () => {
 	const { data: votes } = await listExpiredVotes();
 
 	if (!votes?.length) {
-		return <h1 className="text-black">No existen votaciones 😅</h1>;
+		return <h1 className="text-black">No existen votaciones </h1>;
 	}
 	return <ListVote votes={votes} isExpire={true} />;
 };
