@@ -6,8 +6,12 @@ import Profile from "./Profile";
 import LoginForm from "./LoginForm";
 import { useUser } from "@/lib/hook";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 export default function Navbar() {
+  const searchParams = useSearchParams()
+  const admin = searchParams.get('admin') === "true";
+
   return (
     <nav className="flex items-center justify-between ">
       <Link href="/" className="flex items-center gap-2">
@@ -26,12 +30,12 @@ export default function Navbar() {
             height={300}
             className=""
           />
-      <RenderProfile />
+      <RenderProfile isAdmin={admin} />
     </nav>
   );
 }
 
-const RenderProfile = () => {
+const RenderProfile = ( {isAdmin}: {isAdmin: boolean}) => {
   const { data, isFetching } = useUser();
 
   if (isFetching) {
@@ -39,9 +43,8 @@ const RenderProfile = () => {
   }
 
   if (data?.user?.id) {
-    console.log(data);
     return <Profile user={data?.user} />;
   } else {
-    return <LoginForm />;
+    return <LoginForm isAdmin={isAdmin} />;
   }
 };
